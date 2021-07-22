@@ -1,6 +1,5 @@
-# Webpack Starter
-Este esl proyecto inicial para crear
-apliaciones utilizando webpack.
+# CRUD JS 1.0
+Sistema de altas, lectura, actualizacion y eliminar
 
 ### Notas:
 Recuerden reconstruir los modulos de Node
