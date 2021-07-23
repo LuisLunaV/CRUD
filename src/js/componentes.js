@@ -3,21 +3,20 @@ import { registroList } from '..';
 
 import '../css/componentes.css';
 
-export const nombre   = document.querySelector('#txtnombre'),
-             apellido = document.querySelector('#txtapellido'),
-             email    = document.querySelector('#txtemail'),
-             telefono = document.querySelector('#txttelefono'),
-             folio    = document.querySelector('#txtfolio'),
-             ulList   = document.querySelector('#lista');
-
-
-export const btnGuardar = document.querySelector('#btnaceptar');
-export const btnEditar  = document.querySelector('#btneditar');
+export const nombre     = document.querySelector('#txtnombre'),
+             apellido   = document.querySelector('#txtapellido'),
+             email      = document.querySelector('#txtemail'),
+             telefono   = document.querySelector('#txttelefono'),
+             folio      = document.querySelector('#txtfolio'),
+             ulList     = document.querySelector('#lista'),
+             btnGuardar = document.querySelector('#btnaceptar'),
+             btnEditar  = document.querySelector('#btneditar'),
+             fecha      = document.querySelector('#txtfecha');
 
 //***Crea la fecha actual del registro del personal***
 const nuevoRegistro = new registro( );
 
-export const fecha = document.querySelector('#txtfecha');
+
 
 fecha.value = `${nuevoRegistro.fecha.getDate()}/${nuevoRegistro.fecha.getMonth()+1}/${nuevoRegistro.fecha.getFullYear()}`;
 
@@ -53,6 +52,7 @@ alert('Favor de llenar todos los campos');
 setTimeout(()=>{folio.value=''}, 10000);
 });
 
+//***Funcion que nos ayuda a crear nuestros elementos HTML de los clientes registrados con sus respectivos iconos***
 export const crearRegistroHtml = ( id ) =>{
 
     const htmlId =`<li data-id="${id.id}">
@@ -82,19 +82,19 @@ div.innerHTML = htmlId;
 
 ulList.append(div.firstElementChild);
 return div.firstElementChild;
+
 };
 
 //***Eventos de los iconos***
 //***window.onload nos va a ayudar a que carge los elementos necesarios 'icono' y que los eventos no nos devuelva un null***
-
 window.onload =()=>{ 
 
 ulList.addEventListener('click', (event)=>{
 
         // console.log(event.target.id)
-        const nombreElemento = event.target.id;
-        const infoElemento = event.target.parentElement.parentElement.parentElement.parentElement;
-        const infoId = infoElemento.getAttribute('data-id');
+        const nombreElemento = event.target.id,
+              infoElemento = event.target.parentElement.parentElement.parentElement.parentElement,
+              infoId = infoElemento.getAttribute('data-id');
 
 if(nombreElemento.includes('icon-edit')){
 
@@ -102,7 +102,7 @@ alert('editar');
 
 }else if(nombreElemento.includes('icon-delete')){
 
-    const aviso = confirm('¿Esta seguro de eliminar registro?');
+const aviso = confirm('¿Esta seguro de eliminar registro?');
 
 if(aviso){
 
