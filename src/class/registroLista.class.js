@@ -5,7 +5,7 @@ export class RegistroList{
 
     constructor(){
         this.cargarLocalStorage();
-        // this.persona = [];
+        
     }
     
     nuevoRegistro( datos ){
