@@ -114,6 +114,7 @@ if(aviso){
     email.value    = '';
     telefono.value = '';
     
+    fecha.value = `${nuevoRegistro.fecha.getDate()}/${nuevoRegistro.fecha.getMonth()+1}/${nuevoRegistro.fecha.getFullYear()}`;
 
 }
 
@@ -121,6 +122,11 @@ if(aviso){
 }else if(nombreElemento.includes('icon-acces')){
 
   registroList.mostrarInformacio( infoId );
+
+  nombre.disabled    = true;
+  apellido.disabled  = true; 
+  email.disabled     = true;    
+  telefono.disabled  = true; 
 
 }
 
