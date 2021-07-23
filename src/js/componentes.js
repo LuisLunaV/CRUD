@@ -10,14 +10,17 @@ export const nombre   = document.querySelector('#txtnombre'),
              folio    = document.querySelector('#txtfolio'),
              ulList   = document.querySelector('#lista');
 
+
 export const btnGuardar = document.querySelector('#btnaceptar');
 export const btnEditar  = document.querySelector('#btneditar');
 
 //***Crea la fecha actual del registro del personal***
 const nuevoRegistro = new registro( );
 
-const fecha    = document.querySelector('#txtfecha');
+export const fecha = document.querySelector('#txtfecha');
+
 fecha.value = `${nuevoRegistro.fecha.getDate()}/${nuevoRegistro.fecha.getMonth()+1}/${nuevoRegistro.fecha.getFullYear()}`;
+
 fecha.disabled = true;
 
 folio.disabled = true;
@@ -105,6 +108,12 @@ if(aviso){
 
     registroList.eliminarRegistro( infoId );
     ulList.removeChild( infoElemento );
+
+    nombre.value   = '';
+    apellido.value = '';
+    email.value    = '';
+    telefono.value = '';
+    
 
 }
 

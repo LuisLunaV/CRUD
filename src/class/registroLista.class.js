@@ -1,4 +1,4 @@
-import { apellido, email, folio, nombre, telefono } from '../js/componentes';
+import { apellido, email, fecha, folio, nombre, telefono } from '../js/componentes';
 import { registro } from './registro.class';
 
 export class RegistroList{
@@ -33,12 +33,14 @@ export class RegistroList{
 
           if( this.persona[i].id == id ){
 
-             folio.value       = this.persona[i].id;
+             folio.value    = this.persona[i].id;
              nombre.value   = this.persona[i].nombre;
              apellido.value = this.persona[i].apellido;
              email.value    = this.persona[i].email;
              telefono.value = this.persona[i].telefono;
-            //  fecha.value    = this.persona[i].fecha;
+             fecha.value    = this.persona[i].fecha;
+             
+
 
           }
         
