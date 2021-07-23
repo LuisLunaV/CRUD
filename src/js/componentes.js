@@ -14,11 +14,31 @@ export const nombre     = document.querySelector('#txtnombre'),
              fecha      = document.querySelector('#txtfecha');
 
 //***Crea la fecha actual del registro del personal***
+
 const nuevoRegistro = new registro( );
 
+//***Funciones *//
+const bloquear =()=>{
+    nombre.disabled    = true;
+    apellido.disabled  = true; 
+    email.disabled     = true;    
+    telefono.disabled  = true; 
+};
+
+const limpiar =()=>{
+    nombre.value   = '';
+    apellido.value = '';
+    email.value    = '';
+    telefono.value = '';  
+};
+
+const fechas =()=>{
+
+    fecha.value = `${nuevoRegistro.fecha.getDate()}/${nuevoRegistro.fecha.getMonth()+1}/${nuevoRegistro.fecha.getFullYear()}`;
+};
 
 
-fecha.value = `${nuevoRegistro.fecha.getDate()}/${nuevoRegistro.fecha.getMonth()+1}/${nuevoRegistro.fecha.getFullYear()}`;
+fechas();
 
 fecha.disabled = true;
 
@@ -34,10 +54,7 @@ btnGuardar.addEventListener('click', ()=>{
 
     registroList.nuevoRegistro(nuevoRegistro);
   
-    nombre.value   = '';
-    apellido.value = '';
-    email.value    = '';
-    telefono.value = '';
+    limpiar();
 
     folio.value= nuevoRegistro.id;
 
@@ -109,26 +126,22 @@ if(aviso){
     registroList.eliminarRegistro( infoId );
     ulList.removeChild( infoElemento );
 
-    nombre.value   = '';
-    apellido.value = '';
-    email.value    = '';
-    telefono.value = '';
+    limpiar();
+    fechas();
     
-    fecha.value = `${nuevoRegistro.fecha.getDate()}/${nuevoRegistro.fecha.getMonth()+1}/${nuevoRegistro.fecha.getFullYear()}`;
-
 }
 
 
 }else if(nombreElemento.includes('icon-acces')){
 
-  registroList.mostrarInformacio( infoId );
+registroList.mostrarInformacio( infoId );
 
-  nombre.disabled    = true;
-  apellido.disabled  = true; 
-  email.disabled     = true;    
-  telefono.disabled  = true; 
+bloquear();
 
 }
 
     });
 }
+
+
+
